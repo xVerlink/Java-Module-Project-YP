@@ -1,6 +1,8 @@
 class Car {
-    private final String name;
-    private final int speed;
+    private String name;
+    private int speed;
+    final static int MIN_SPEED = 0;
+    final static int MAX_SPEED = 250;
 
     Car(String name, int speed) {
         this.name = name;
@@ -11,7 +13,12 @@ class Car {
         return name;
     }
 
-    public int getSpeed() {
-        return speed;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }

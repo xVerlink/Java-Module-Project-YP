@@ -14,7 +14,7 @@ public class Main {
                 Scanner speedScanner = new Scanner(System.in);
                 if (speedScanner.hasNextInt()) {
                     speed = speedScanner.nextInt();
-                    if (speed > 0 && speed <= 250) {
+                    if (speed > Car.MIN_SPEED && speed <= Car.MAX_SPEED) {
                         break;
                     } else {
                         System.out.println("Неправильная скорость");
@@ -23,10 +23,9 @@ public class Main {
                     System.out.println("Введенная строка не является числом");
                 }
             }
-
-            Race.CARS_LIST.add(new Car(name, speed));
+            Race.setLeader(name, speed);
         }
         scanner.close();
-        Race.start();
+        Race.printWinner();
     }
 }

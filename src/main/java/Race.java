@@ -1,22 +1,19 @@
-import java.util.ArrayList;
+
 
 class Race {
-    private static Car leader;
-    static final ArrayList<Car> CARS_LIST = new ArrayList<>();
+    private static Car leader = new Car("", 0);
+    private static int maxDistance = 0;
 
-    static void start() {
-        int maxDistance = 0;
-        for (Car car : CARS_LIST) {
-            int distance = car.getSpeed() * 24;
-            if (distance > maxDistance) {
-                maxDistance = distance;
-                leader = car;
-            }
+    static void setLeader(String name, int speed) {
+        int distance = speed * 24;
+        if (distance > maxDistance) {
+            maxDistance = distance;
+            leader.setName(name);
+            leader.setSpeed(speed);
         }
-        printWinner();
     }
 
-    private static void printWinner() {
+    static void printWinner() {
         System.out.println("Самая быстрая машина: " + leader.getName());
     }
 }
